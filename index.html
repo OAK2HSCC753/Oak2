@@ -16,7 +16,7 @@
 
     <main>
         <!-- Welcome Section -->
-        <section class="intro fade-in">
+        <section id="intro" class="intro fade-in">
             <h2 class="bold-uppercase">Welcome to the Bike Room Registration</h2>
             <p><strong>Here are the instructions for registration:</strong></p>
             <div class="instructions">
@@ -61,6 +61,8 @@
             <p><strong>Suite:</strong> <span id="residentSuite"></span></p>
             <p><strong>Bike Information:</strong> <span id="residentBike"></span></p>
             <p><strong>Email:</strong> <span id="residentEmail"></span></p>
+            <p><strong>Registration Date:</strong> <span id="registrationDate"></span></p>
+            <p><strong>Registration Valid Until:</strong> <span id="registrationValidUntil"></span></p>
             <button onclick="logout()">Logout</button>
         </section>
 
@@ -95,44 +97,29 @@
         // Resident Data
         const residents = [
             {
-                username: "Mehak",
-                password: "Oak2",
-                name: "Mehak",
-                phone: "64755",
-                suite: "256",
+                username: "5120",
+                password: "Oak2753",
+                name: "Elizabeth Lawson",
+                phone: "437-345-2494",
+                suite: "1414D",
                 bikeInfo: "Black Bike",
-                email: "55555S@GMAIL.COM",
+                email: "hundrin@yahoo.com",
+                registrationDate: "2024-11-19",
+                registrationValidUntil: "2025-05-31"
             },
-  {
-                username: "Rajatk",
-                password: "Oak2",
-                name: "Mehak",
-                phone: "64755",
-                suite: "256",
+            {
+                username: "5122",
+                password: "Oak2753",
+                name: "Jeffrey Graham Thompson",
+                phone: "905-616-7972",
+                suite: "1414D",
                 bikeInfo: "Black Bike",
-                email: "55555S@GMAIL.COM",
-            },
-            { 
-                username: "Ryan", 
-                password: "Oak2", 
-                name: "John Doe", 
-                phone: "123-456-7890", 
-                suite: "101", 
-                bikeInfo: "Red Bike", 
-                email: "john.doe@example.com",
-            },
-{ 
-                username: "Laurie", 
-                password: "Oak2", 
-                name: "John Doe", 
-                phone: "123-456-7890", 
-                suite: "101", 
-                bikeInfo: "Red Bike", 
-                email: "john.doe@example.com",
+                email: "jeffgthompson@gmail.com",
+                registrationDate: "2024-11-19",
+                registrationValidUntil: "2025-05-31"
             },
         ];
 
-        // Function to validate login credentials
         function checkLogin(event) {
             event.preventDefault();
             const username = document.getElementById("username").value.trim();
@@ -147,7 +134,6 @@
             }
         }
 
-        // Display Resident Information
         function displayResidentInfo(resident) {
             document.getElementById("loginSection").classList.add("hidden");
             document.getElementById("residentInfo").classList.remove("hidden");
@@ -156,34 +142,29 @@
             document.getElementById("residentSuite").textContent = resident.suite;
             document.getElementById("residentBike").textContent = resident.bikeInfo;
             document.getElementById("residentEmail").textContent = resident.email;
+            document.getElementById("registrationDate").textContent = resident.registrationDate;
+            document.getElementById("registrationValidUntil").textContent = resident.registrationValidUntil;
         }
 
-        // Logout function
         function logout() {
-            document.getElementById("username").value = "";
-            document.getElementById("password").value = "";
             document.getElementById("residentInfo").classList.add("hidden");
             document.getElementById("loginSection").classList.remove("hidden");
         }
 
-        // Show Management Login Section
-        function showManagementLogin() {
-            document.querySelector(".intro").classList.add("hidden");
-            document.getElementById("loginSection").classList.remove("hidden");
-        }
-
-        // Show Policies Section
         function showPolicies() {
-            document.querySelector(".intro").classList.add("hidden");
             document.getElementById("policiesSection").classList.remove("hidden");
+            document.getElementById("intro").classList.add("hidden");
         }
 
-        // Go Back to Welcome Page
+        function showManagementLogin() {
+            document.getElementById("loginSection").classList.remove("hidden");
+            document.getElementById("intro").classList.add("hidden");
+        }
+
         function goBack() {
-            document.querySelector(".intro").classList.remove("hidden");
-            document.getElementById("loginSection").classList.add("hidden");
             document.getElementById("policiesSection").classList.add("hidden");
-            document.getElementById("residentInfo").classList.add("hidden");
+            document.getElementById("loginSection").classList.add("hidden");
+            document.getElementById("intro").classList.remove("hidden");
         }
     </script>
 </body>
